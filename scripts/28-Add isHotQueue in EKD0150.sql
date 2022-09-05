@@ -1,0 +1,2 @@
+ALTER TABLE EKD0150
+    ADD IsHotQueue char(1) DEFAULT ' ' NOT NULL;

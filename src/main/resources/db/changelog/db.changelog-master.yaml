@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/db/changelog/changes/PROJ-128-create-user-profile-table.sql
+  - include:
+      file: classpath:/db/changelog/changes/PROJ-36-create-queue-profile.sql
+  - include:
+      file: classpath:/db/changelog/changes/PROJ-327-create-pend-case-table.sql
+  - include:
+      file: classpath:/db/changelog/changes/PROJ-327-create-pend-doc-type-table.sql
+  - include:
+      file: classpath:/db/changelog/changes/PROJ-27-create-indexing-table.sql
+  - include:
+      file: classpath:/db/changelog/changes/PROJ-534-update-user-profile-add-column-emsiuser.sql
+  - include:
+      file: classpath:/db/changelog/changes/PROJ-123-create-afbapierr-table.sql

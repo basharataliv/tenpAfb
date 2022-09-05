@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <!-- Closes gracefully and finishes the log drain -->
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+  <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+    <!-- Replace these parameters with your configuration -->
+    <token>${LOGZ_IO_TOKEN}</token>
+    <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+    <logzioType>AfbaAPP</logzioType>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>INFO</level>
+    </filter>
+  </appender>
+  
+  <appender name="Console"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				[%date{yyyy-MM-dd HH:mm:ss.SSS}] [%p] [%C{1.}]: [%L] [%m]%n
+			</Pattern>
+		</layout>
+	</appender>
+
+  <root level="INFO">
+    <!-- IMPORTANT: This line is required -->
+    <appender-ref ref="Console" />
+    <appender-ref ref="LogzioLogbackAppender"/>
+  </root>
+</configuration>
+

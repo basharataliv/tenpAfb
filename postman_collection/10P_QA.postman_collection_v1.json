@@ -1,0 +1,3508 @@
+{
+	"info": {
+		"_postman_id": "c188c9c5-3759-44f6-8028-a8839655d185",
+		"name": "AFBA - ImagePlus - 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Case Management",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "Get a sigle Case",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases/024509258",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024509258"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Case",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"user-agent": true,
+									"accept-encoding": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n{\r\n   \r\n    \"status\" : \"A\"\r\n    \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/024509258",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024509258"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "move a document",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"existingCaseId\":\"024459950\",\r\n    \"documentId\":\"B21244AA.B14\",\r\n    \"targetCaseId\":\"024459950\"\r\n\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/case/document/move",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"case",
+										"document",
+										"move"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Copy a document",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"caseId\":\"000000311\",\r\n    \"documentId\":\"B21362AA.AAA\",\r\n    \"dasdFlag\":\"1\",\r\n    \"scanningDate\" : \"2021-01-10\",\r\n    \"scanningTime\": \"08:00:00\",\r\n    \"scanningUser\":\"user\",\r\n    \"itemType\":\"1\",\r\n    \"itemInit\":\"1\",\r\n    \"filler\":\"filler\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/case/document",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"case",
+										"document"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Case",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases/024509258",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024509258"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all Cases [paggination]",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Case Comments",
+					"item": [
+						{
+							"name": "Add a case comment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentLines\": [\r\n        {\r\n            \"commentLine\": \"This is first line of comment\"\r\n        },\r\n        {\r\n            \"commentLine\": \"This is second line of comment\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/024491387/comments",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024491387",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit a Case Comment",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentLines\": [\r\n        {\r\n            \"commentLine\": \"[Edit-1] This is first line of comment\"\r\n        },\r\n        {\r\n            \"commentLine\": \"[Edit-2] This is second line of comment\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/024491387/comments/4676016",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024491387",
+										"comments",
+										"4676016"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Case Comment",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/cases/1/comments/1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"1",
+										"comments",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Comments of a Case",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases/024491387/comments",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024491387",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Single Case Comment",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases/024491387/comments/4676016",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024491387",
+										"comments",
+										"4676016"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Case Comments to Document",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/024491387/comments/document",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024491387",
+										"comments",
+										"document"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pend / unpend case",
+					"item": [
+						{
+							"name": "PEND-For Days (P)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pendForDays\": \"15\",\r\n    \"returnQueueId\": \"MOVE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/024502025/pend",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024502025",
+										"pend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PEND-For Document Type (P)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pendDocType\": \"1199PEND\",\r\n    \"returnQueueId\": \"MOVE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/024502025/pend",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024502025",
+										"pend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PEND-For Release Date (P)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pendReleaseDate\": \"20220320\",\r\n    \"returnQueueId\": \"MOVE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/024502025/pend",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024502025",
+										"pend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UNPEND-RLSEMSIWT (W)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}} ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"callingProgram\": \"RLSEMSIWT\",\r\n    \"policyId\": \"2126000149\",\r\n    \"doFsroOverride\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/unpend",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"unpend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UNPEND-JOB (P/W)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}} ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"callingProgram\": \"JOB\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/unpend",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"unpend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UNPEND (P)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"callingProgram\": \"REINDEX\",\r\n    \"caseId\": \"024502025\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/unpend",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"unpend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PEND (W)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetQueue\": \"GOTOEMSIQ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/024502025/pend",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"024502025",
+										"pend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UNPEND BY NIGHT JOB",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases/unpend/job",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"unpend",
+										"job"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "lock / unlock a case",
+					"item": [
+						{
+							"name": "lock a case",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/000000147/work",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"000000147",
+										"work"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unlock a case",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/cases/000000146/release",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"000000146",
+										"release"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Work Queued Case",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases/APPSGF/lock",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"APPSGF",
+										"lock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Locked Case",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases/in-work",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"in-work"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RELEASE SPECIFIC DAYS OLD CASES FROM LOCK",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"daysAgo\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{QA}}cases/release/job",
+									"host": [
+										"{{QA}}cases"
+									],
+									"path": [
+										"release",
+										"job"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DEFFOLD",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"initialQueueId\" : \"\",\r\n\t \"initialRepId\" : \"afba\",\r\n\t \"lastRepId\" : \"afba\",\r\n\t \"scanningDate\" : \"2021-11-06\",\r\n\t \"scanningTime\" : \"13:10:53.6598049\",\r\n\t \"cmAccountNumber\" : \"197564982\",\r\n\t\"cmFormattedName\" : \"21 BENEFICIARY ACTION \",\r\n\t\"chargeBackFlag\" : \"1\",\r\n\t\"currentQueueId\" : \"\",\r\n\t\"filler\" : \"filler\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/cases",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"cases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ENQFLR",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":null,\r\n    \"queueId\":\"IMAGE\",\r\n    \"combination\":\"020190101080000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/cases/024509258/enqflr",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"cases",
+								"024509258",
+								"enqflr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEFFOLD",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"initialQueueId\" : \"\",\r\n\t \"initialRepId\" : \"afba\",\r\n\t \"lastRepId\" : \"afba\",\r\n\t \"scanningDate\" : \"2021-11-06\",\r\n\t \"scanningTime\" : \"13:10:53.6598049\",\r\n\t \"cmAccountNumber\" : \"197564982\",\r\n\t\"cmFormattedName\" : \"21 BENEFICIARY ACTION \",\r\n\t\"chargeBackFlag\" : \"1\",\r\n\t\"currentQueueId\" : \"\",\r\n\t\"filler\" : \"filler\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/cases",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"cases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEFSTOBJ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "      {\r\n  \"caseId\":\"000000481\",\r\n  \"documentId\":\"B22010AA.AAP\",\r\n  \"dasdFlag\":\"1\",\r\n \"scanningDate\" : \"2021-01-10\",\r\n \"scanningTime\": \"08:00:00\",\r\n  \"scanningUser\":\"user\",\r\n  \"itemType\":\"1\",\r\n  \"itemInit\":\"1\",\r\n  \"filler\":\"filler\"\r\n}\r\n    \r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/case/document",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"case",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Document - IMPORT (using STORSFOBJ and CRTOBJ)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonRes = JSON.parse(responseBody)\r",
+									"pm.environment.set(\"documentId\", jsonRes.docName)\r",
+									"pm.environment.set(\"spDocId\", jsonRes.spDocId)\r",
+									"pm.environment.set(\"spDocSiteId\", jsonRes.spDocSiteId)\r",
+									"pm.environment.set(\"spDocLibraryId\", jsonRes.spDocLibraryId)"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "olsSystemId",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "olsFolderName",
+									"value": "olsFolderName",
+									"type": "text"
+								},
+								{
+									"key": "olsSubDirName",
+									"value": "olsSubDirName",
+									"type": "text"
+								},
+								{
+									"key": "filFlg1A",
+									"value": "filFlg1A",
+									"type": "text"
+								},
+								{
+									"key": "filFlg2A",
+									"value": "filFlg2A",
+									"type": "text"
+								},
+								{
+									"key": "filfldx2",
+									"value": "filfldx2",
+									"type": "text"
+								},
+								{
+									"key": "filfldx5",
+									"value": "filfldx5",
+									"type": "text"
+								},
+								{
+									"key": "activeRequest",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "documentType",
+									"value": "SomeDoc",
+									"type": "text"
+								},
+								{
+									"key": "kBytesInDocument",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "scaningWsId",
+									"value": "scaningWsId",
+									"type": "text"
+								},
+								{
+									"key": "scanningRepId",
+									"value": "scanningRepId",
+									"type": "text"
+								},
+								{
+									"key": "batchId",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "userLastUpdate",
+									"value": "userLastUpdate",
+									"type": "text"
+								},
+								{
+									"key": "ReqListDescription",
+									"value": "desc12",
+									"type": "text"
+								},
+								{
+									"key": "docPage",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "caseCreateFlag",
+									"value": "caseCreateFlag",
+									"type": "text"
+								},
+								{
+									"key": "autoIndexFlag",
+									"value": "autoIndexFlag",
+									"type": "text"
+								},
+								{
+									"key": "dasdCounter",
+									"value": "132",
+									"type": "text"
+								},
+								{
+									"key": "opticalStoreFlag",
+									"value": "opticalStoreFlag",
+									"type": "text"
+								},
+								{
+									"key": "nopVolid1",
+									"value": "nopVolid1",
+									"type": "text"
+								},
+								{
+									"key": "nopVolid2",
+									"value": "nopVolid2",
+									"type": "text"
+								},
+								{
+									"key": "nopVolid3",
+									"value": "nopVolid3",
+									"type": "text"
+								},
+								{
+									"key": "inpmetflgA",
+									"value": "inpmetflgA",
+									"type": "text"
+								},
+								{
+									"key": "optvolA",
+									"value": "null",
+									"type": "text"
+								},
+								{
+									"key": "objclsA",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "versnA",
+									"value": "versnA",
+									"type": "text"
+								},
+								{
+									"key": "filler",
+									"value": "filler112",
+									"type": "text"
+								},
+								{
+									"key": "metaData.ssn",
+									"value": "0123456789",
+									"type": "text"
+								},
+								{
+									"key": "metaData.firstName",
+									"value": "Edit-QA",
+									"type": "text"
+								},
+								{
+									"key": "metaData.lastName",
+									"value": "Tester",
+									"type": "text"
+								},
+								{
+									"key": "metaData.policyNo",
+									"value": "1234567890",
+									"type": "text"
+								},
+								{
+									"key": "docExt",
+									"value": "tiff",
+									"type": "text"
+								},
+								{
+									"key": "doc",
+									"type": "file",
+									"src": "/C:/Users/afnan.khalid/OneDrive - 10Pearls/Documents/testing files/demo/sample_file.tiff"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/documents",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RMVOBJ Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"documentId\":\"B22010AA.AAP\",\r\n    \"caseId\":\"024509254\",\r\n    \"reindexFlag\":\"Y\",\r\n    \"identifier\":\"2125800604\",\r\n    \"userId\":\"Authorized\"\r\n\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/case/document/rmvobj",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"case",
+								"document",
+								"rmvobj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SENDSFOBJ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/documents/B21342AA.AAK/content",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"documents",
+								"B21342AA.AAK",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteflr",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/cases/40",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"cases",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closeflr",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/cases/32/closeflr",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"cases",
+								"32",
+								"closeflr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BAEndorse",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/cases/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"cases",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEQFLR",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{server}}/cases/15/deqflr",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"cases",
+								"15",
+								"deqflr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INDEXOBJ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"documentType\": \"SomeDoc\",\r\n    \"documentDescription\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/documents/B225AA.AAD/indexobj",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"documents",
+								"B225AA.AAD",
+								"indexobj"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Document Management",
+			"item": [
+				{
+					"name": "Document",
+					"item": [
+						{
+							"name": "Create Document",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonRes = JSON.parse(responseBody)\r",
+											"pm.environment.set(\"documentId\", jsonRes.docName)\r",
+											"pm.environment.set(\"spDocId\", jsonRes.spDocId)\r",
+											"pm.environment.set(\"spDocSiteId\", jsonRes.spDocSiteId)\r",
+											"pm.environment.set(\"spDocLibraryId\", jsonRes.spDocLibraryId)"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "olsSystemId",
+											"value": "E",
+											"description": "Max 1 character",
+											"type": "text"
+										},
+										{
+											"key": "olsFolderName",
+											"value": "test",
+											"description": "Max 8 character",
+											"type": "text"
+										},
+										{
+											"key": "olsSubDirName",
+											"value": "test",
+											"description": "Max 12 character",
+											"type": "text"
+										},
+										{
+											"key": "filFlg1A",
+											"value": "Y",
+											"description": "Max 1 character",
+											"type": "text"
+										},
+										{
+											"key": "filFlg2A",
+											"value": "Y",
+											"description": "Max 1 character",
+											"type": "text"
+										},
+										{
+											"key": "filfldx2",
+											"value": "",
+											"description": "Max 2 character",
+											"type": "text"
+										},
+										{
+											"key": "filfldx5",
+											"value": "",
+											"description": "Max 5 character",
+											"type": "text"
+										},
+										{
+											"key": "activeRequest",
+											"value": "0",
+											"description": "Max 3 character",
+											"type": "text"
+										},
+										{
+											"key": "documentType",
+											"value": "DOCTYP1",
+											"description": "Max 8 character",
+											"type": "text"
+										},
+										{
+											"key": "kBytesInDocument",
+											"value": "123",
+											"description": "Max 5 character",
+											"type": "text"
+										},
+										{
+											"key": "scaningWsId",
+											"value": "PC",
+											"description": "Max 2 character",
+											"type": "text"
+										},
+										{
+											"key": "scanningRepId",
+											"value": "REP",
+											"description": "Max 10 character",
+											"type": "text"
+										},
+										{
+											"key": "batchId",
+											"value": "0",
+											"description": "Max 4 numeric",
+											"type": "text"
+										},
+										{
+											"key": "userLastUpdate",
+											"value": "FMDP",
+											"description": "Max 10 character",
+											"type": "text"
+										},
+										{
+											"key": "ReqListDescription",
+											"value": "ReqDescription",
+											"description": "Max 40 character",
+											"type": "text"
+										},
+										{
+											"key": "docPage",
+											"value": "1",
+											"description": "Max 4 numeric",
+											"type": "text"
+										},
+										{
+											"key": "caseCreateFlag",
+											"value": "1",
+											"description": "Max 1 character",
+											"type": "text"
+										},
+										{
+											"key": "autoIndexFlag",
+											"value": "Y",
+											"description": "Max 1 character",
+											"type": "text"
+										},
+										{
+											"key": "dasdCounter",
+											"value": "0",
+											"description": "Max 3 numeric",
+											"type": "text"
+										},
+										{
+											"key": "opticalStoreFlag",
+											"value": "Y",
+											"description": "Max 1 character",
+											"type": "text"
+										},
+										{
+											"key": "nopVolid1",
+											"value": "",
+											"description": "Max 10 character",
+											"type": "text"
+										},
+										{
+											"key": "nopVolid2",
+											"value": "",
+											"description": "Max 10 character",
+											"type": "text"
+										},
+										{
+											"key": "nopVolid3",
+											"value": "",
+											"description": "Max 10 character",
+											"type": "text"
+										},
+										{
+											"key": "inpmetflgA",
+											"value": "I",
+											"description": "Max 1 character",
+											"type": "text"
+										},
+										{
+											"key": "optvolA",
+											"value": "",
+											"description": "Max 6 character",
+											"type": "text"
+										},
+										{
+											"key": "objclsA",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "versnA",
+											"value": "N",
+											"description": "Max 1 character",
+											"type": "text"
+										},
+										{
+											"key": "filler",
+											"value": "filler",
+											"description": "Max 20 character",
+											"type": "text"
+										},
+										{
+											"key": "doc",
+											"type": "file",
+											"src": "/D:/Sample files/sample-2.tiff"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/documents",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"documents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "closefl",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases/32/closeflr",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"32",
+										"closeflr"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Document",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "olsSystemId",
+											"value": "X",
+											"type": "text"
+										},
+										{
+											"key": "olsFolderName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "olsSubDirName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "filFlg1A",
+											"value": "Y",
+											"type": "text"
+										},
+										{
+											"key": "filFlg2A",
+											"value": "Y",
+											"type": "text"
+										},
+										{
+											"key": "filfldx2",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "filfldx5",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "activeRequest",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "documentType",
+											"value": "DOCTYP1",
+											"type": "text"
+										},
+										{
+											"key": "kBytesInDocument",
+											"value": "123",
+											"type": "text"
+										},
+										{
+											"key": "scaningWsId",
+											"value": "PC",
+											"type": "text"
+										},
+										{
+											"key": "scanningRepId",
+											"value": "REP",
+											"type": "text"
+										},
+										{
+											"key": "batchId",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "userLastUpdate",
+											"value": "FMDP",
+											"type": "text"
+										},
+										{
+											"key": "ReqListDescription",
+											"value": "ReqDescription",
+											"type": "text"
+										},
+										{
+											"key": "docPage",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "caseCreateFlag",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "autoIndexFlag",
+											"value": "Y",
+											"type": "text"
+										},
+										{
+											"key": "dasdCounter",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "opticalStoreFlag",
+											"value": "Y",
+											"type": "text"
+										},
+										{
+											"key": "nopVolid1",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "nopVolid2",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "nopVolid3",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "inpmetflgA",
+											"value": "I",
+											"type": "text"
+										},
+										{
+											"key": "optvolA",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "objclsA",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "versnA",
+											"value": "N",
+											"type": "text"
+										},
+										{
+											"key": "filler",
+											"value": "filler",
+											"type": "text"
+										},
+										{
+											"key": "doc",
+											"type": "file",
+											"src": "/D:/Sample files/sample-2.tiff"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/documents/B22045AA.AAA",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"documents",
+										"B22045AA.AAA"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all documents for a specific CaseID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/cases/27/documents/content",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"cases",
+										"27",
+										"documents",
+										"content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get single Document",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/documents/B21337AA.AAD,B21340AA.AAB/content",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"documents",
+										"B21337AA.AAD,B21340AA.AAB",
+										"content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "INDEXOBJ",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"documentType\": \"DOCTYP2\",\r\n    \"documentDescription\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/documents/B22045AA.AAA/indexobj",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"documents",
+										"B22045AA.AAA",
+										"indexobj"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Document",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/documents/B22045AA.AAA",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"documents",
+										"B22045AA.AAA"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Document Type",
+					"item": [
+						{
+							"name": "Create Document Type",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"documentType\": \"DFT\",\r\n    \"documentDescription\": \"DFT is default doc type\",\r\n    \"defaultSuspendDays\": 5,\r\n    \"dasdControlFlag\": false,\r\n    \"olsStoreFlag\": false,\r\n    \"outputRequired\": false,\r\n    \"informRetrievalDept\": false,\r\n    \"createNewCase\": 1,\r\n    \"indexScanFlag\": false,\r\n    \"requestSuspendFlag\": false,\r\n    \"defaultQueueId\": \"IMAGHLDQ\",\r\n    \"userLastUpdate\": \"Amna\",\r\n    \"noInBatch\": 123,\r\n    \"requestInputFlag\": false,\r\n    \"retentionPeriod\": null,\r\n    \"securityClass\": 1,\r\n    \"allowImpA\": false,\r\n    \"inpdTypeA\": \"AB\",\r\n    \"faxPSizeA\": 1,\r\n    \"alwannflA\": false,\r\n    \"alwredflA\": false,\r\n    \"allowOcr\": false,\r\n    \"confirmAll\": false,\r\n    \"workstationOnly\": false,\r\n    \"matchCp\": true,\r\n    \"storeMethod\": 1,\r\n    \"storeClass\": \"A\",\r\n    \"optSysId\": \"A\",\r\n    \"lan3995\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/document-types",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"document-types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Document Type",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"documentType\": \"SomeDoc1\",\r\n    \"documentDescription\": \"[edit-2] Setting document description\",\r\n    \"defaultSuspendDays\": 321,\r\n    \"dasdControlFlag\": true,\r\n    \"olsStoreFlag\": true,\r\n    \"outputRequired\": true,\r\n    \"informRetrievalDept\": true,\r\n    \"createNewCase\": 2,\r\n    \"indexScanFlag\": true,\r\n    \"requestSuspendFlag\": true,\r\n    \"defaultQueueId\": \"[edit] IMAGHLDQ\",\r\n    \"userLastUpdate\": \"[edit] Afnan QA\",\r\n    \"noInBatch\": 321,\r\n    \"requestInputFlag\": true,\r\n    \"retentionPeriod\": 321,\r\n    \"securityClass\": 2,\r\n    \"allowImpA\": true,\r\n    \"inpdTypeA\": \"XZ\",\r\n    \"faxPSizeA\": 2,\r\n    \"alwannflA\": true,\r\n    \"alwredflA\": true,\r\n    \"allowOcr\": true,\r\n    \"confirmAll\": true,\r\n    \"workstationOnly\": true,\r\n    \"matchCp\": true,\r\n    \"storeMethod\": 1,\r\n    \"storeClass\": \"Z\",\r\n    \"optSysId\": null,\r\n    \"lan3995\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/document-types/DOCTYP1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"document-types",
+										"DOCTYP1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get single Document Type",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/document-types/DOCTYP1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"document-types",
+										"DOCTYP1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "batch job",
+			"item": [
+				{
+					"name": "ekd move for move queue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/ekdMove/move",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"ekdMove",
+								"move"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ekd move for delete queue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/ekdMove/delete",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"ekdMove",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stauton",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/staunton",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"staunton"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "scandoc",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/scanFjc",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"scanFjc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "strapps",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/strApps",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"strApps"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "search",
+			"item": [
+				{
+					"name": "Work Any Case",
+					"item": [
+						{
+							"name": "bySSN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/search?ssn=XXXXX1660",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "ssn",
+											"value": "XXXXX1660"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "byPolicy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/search?policyNo=2125600161",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "policyNo",
+											"value": "2125600161"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "byCaseId",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/search?caseId=024484859",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "caseId",
+											"value": "024484859"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "byName",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/search?firstName=&lastName=GREEN",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "firstName",
+											"value": ""
+										},
+										{
+											"key": "lastName",
+											"value": "GREEN"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Work Queue Case",
+					"item": [
+						{
+							"name": "byQueueId",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/search?queueId=QUEQ      ",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "queueId",
+											"value": "QUEQ      "
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "byPolicy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/search/work-queue?policyNo=2124500300",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"search",
+										"work-queue"
+									],
+									"query": [
+										{
+											"key": "policyNo",
+											"value": "2124500300"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bySSN",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/search/work-queue?ssn=XXXXX1717",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"search",
+										"work-queue"
+									],
+									"query": [
+										{
+											"key": "ssn",
+											"value": "XXXXX1717"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ftp",
+			"item": [
+				{
+					"name": "ftp file dowload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/ftp/zip?path=/test/testSub/testSuba",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"ftp",
+								"zip"
+							],
+							"query": [
+								{
+									"key": "path",
+									"value": "/test/testSub/testSuba"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tif Converter ",
+			"item": [
+				{
+					"name": "tiff convert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\r\n    \"abc.tif\"\r\n}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/convert",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"convert"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "re-indexing",
+			"item": [
+				{
+					"name": "re-index doc",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "doc",
+									"type": "file",
+									"src": "/D:/Sample files/sample-2.tiff"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/re-index/documents/B21257AA.BW8/inuse/true",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"re-index",
+								"documents",
+								"B21257AA.BW8",
+								"inuse",
+								"true"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete re-index doc",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "doc",
+									"type": "file",
+									"src": "/D:/Sample files/sample-2.tiff"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/re-index/documents/B21257AA.BW8",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"re-index",
+								"documents",
+								"B21257AA.BW8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get re-indexed doc",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/re-index/documents/B21180AA.C2S",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"re-index",
+								"documents",
+								"B21180AA.C2S"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all re-indexed docs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/re-index/documents/document-types/BENEMAIL?page=0&size=10",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"re-index",
+								"documents",
+								"document-types",
+								"BENEMAIL"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ekdUser management",
+			"item": [
+				{
+					"name": "get record from ekd user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/ekdusers/2126400123",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"ekdusers",
+								"2126400123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  all record from ekd user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/ekdusers?page=0&size=10",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"ekdusers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create record in ekd user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"policyNumber\": \"2126400123\",\r\n    \"ssn\": \"146512345\",\r\n    \"firstName\": \"HOLOCOMB\",\r\n    \"lastName\": \"NICHOLOS\",\r\n    \"middleInitial\": \"R\",\r\n    \"hasImageCase\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/ekdusers",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"ekdusers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ssn\": \"111111111\",\r\n    \"firstName\": \"Amna\",\r\n    \"lastName\": \"miiii\",\r\n    \"middleInitial\": \"Z\",\r\n    \"hasImageCase\": \"Y\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/ekdusers/2126400123",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"ekdusers",
+								"2126400123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get policy by ssn",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/ekdusers/policy-numbers?ssn=111111111",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"ekdusers",
+								"policy-numbers"
+							],
+							"query": [
+								{
+									"key": "ssn",
+									"value": "111111111"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete record from ekduser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/ekdusers/2126400123",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"ekdusers",
+								"2126400123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Policy Management",
+			"item": [
+				{
+					"name": "Unique PolicyNum API Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/policy/get/id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"policy",
+								"get",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Policies PROTRMPOL",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/protrmpol/policies?policyId=34",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"protrmpol",
+								"policies"
+							],
+							"query": [
+								{
+									"key": "policyId",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Policies PROTRMPOL",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"policies\": [\r\n    {\r\n      \"extPolId\": \"2201700001\",\r\n      \"newPolId\": \"2201700002\",\r\n      \"extPolType\": \"LT\",\r\n      \"extPolStat\": \"S\",\r\n      \"covAmt\": 415.55,\r\n      \"isTerminated\": false\r\n    },\r\n    {\r\n      \"extPolId\": \"2201700003\",\r\n      \"newPolId\": \"2201700004\",\r\n      \"extPolType\": \"LT\",\r\n      \"extPolStat\": \"A\",\r\n      \"covAmt\": 315.55,\r\n      \"isTerminated\": true\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/protrmpol/policies",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"protrmpol",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Queue Management",
+			"item": [
+				{
+					"name": "Get All Queue Paginated",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/queues/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"queues",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Queue By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/queues/AARROYO",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"queues",
+								"AARROYO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Queue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"queueId\": \"New-que123\",\r\n    \"queueType\": \"N\",\r\n    \"queueDescription\": \"AFBACARE special QUEUE\",\r\n    \"noQRec\": null,\r\n    \"alternateQueueId\": null,\r\n    \"queueClass\": 999,\r\n    \"dfltPr\": null,\r\n    \"nextQueueToWork\": null,\r\n    \"aDepartmentId\": \"3025\",\r\n    \"regionId\": \"3025\",\r\n    \"fill20\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/queues",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"queues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Queue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"queueType\": \"N\",\r\n    \"queueDescription\": \"AFBACARE HOLD QUEUE a\",\r\n    \"noQRec\": null,\r\n    \"alternateQueueId\": null,\r\n    \"queueClass\": 999,\r\n    \"dfltPr\": null,\r\n    \"nextQueueToWork\": null,\r\n    \"aDepartmentId\": \"3025\",\r\n    \"regionId\": \"3025\",\r\n    \"fill20\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/queues/New-que123",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"queues",
+								"New-que123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Queue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/queues/New-que123",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"queues",
+								"New-que123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All queue allowed to user.",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/queues/users/all?page=0&size=50",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"queues",
+								"users",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User profile",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get User",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{server}}/users/anas12",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"users",
+										"anas12"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all User",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{server}}/users?page=0&size=50",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"repId\": \"anas123\",\r\n    \"repName\": \" Amna Latif\",\r\n    \"isAdmin\": false,\r\n    \"rhtxId\": \" \",\r\n    \"repCl1\": 0,\r\n    \"repCl2\": 0,\r\n    \"repCl3\": 0,\r\n    \"repCl4\": 0,\r\n    \"repCl5\": 0,\r\n    \"repClr\": 123456,\r\n    \"ridxfl\": true,\r\n    \"rscnfl\": false,\r\n    \"rcasfl\": false,\r\n    \"repDep\": \" \",\r\n    \"repRgn\": \" \",\r\n    \"rpStat\": \" \",\r\n    \"userLu\": \"Gondal\",\r\n    \"exitCwfl\": false,\r\n    \"jumpCwfl\": false,\r\n    \"reindExfl\": true,\r\n    \"deleteFl\": true,\r\n    \"moveFl\": true,\r\n    \"copyFl\": false,\r\n    \"secRange\": 100,\r\n    \"allowImpA\": false,\r\n    \"allowFax\": false,\r\n    \"fcSecLow\": 0,\r\n    \"fcSecHigh\": 0,\r\n    \"prtQueue\": \" \",\r\n    \"alwCrannA\": true,\r\n    \"alwCrredA\": true,\r\n    \"alwModAnnA\": false,\r\n    \"alwModRedA\": false,\r\n    \"alwRmvAnnA\": false,\r\n    \"alwRmvRedA\": false,\r\n    \"alwPrsAnnA\": true,\r\n    \"annSecLvlA\": 0,\r\n    \"redSecLvlA\": 0,\r\n    \"preVerFlA\": true,\r\n    \"separatorPage\": false,\r\n    \"cefLagA\": false,\r\n    \"cfrPflA\": false,\r\n    \"ocRflA\": false,\r\n    \"alwModDocA\": true,\r\n    \"wbSecLow\": 0,\r\n    \"wbSecHigh\": 0,\r\n    \"alwPmg\": false,\r\n    \"alwPmt\": false,\r\n    \"alwWbo\": false,\r\n    \"alwAdc\": false,\r\n    \"alwVwc\": false,\r\n    \"alwWkc\": false,\r\n    \"dftCt1Pnl\": \"2\",\r\n    \"rtvLanatt\": \"1\",\r\n    \"dasdSysId\": \"1\",\r\n    \"privName\": \" \",\r\n    \"allowLog\": \"1\",\r\n    \"filler\": \" \",\r\n    \"closeFl\": true,\r\n    \"emsiUser\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/users",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"repName\": \" Amna Latif\",\r\n    \"rhtxId\": \" \",\r\n    \"isAdmin\": false,\r\n    \"repCl1\": 0,\r\n    \"repCl2\": 0,\r\n    \"repCl3\": 0,\r\n    \"repCl4\": 0,\r\n    \"repCl5\": 0,\r\n    \"repClr\": 0,\r\n    \"ridxfl\": false,\r\n    \"rscnfl\": false,\r\n    \"rcasfl\": false,\r\n    \"repDep\": \" \",\r\n    \"repRgn\": \" \",\r\n    \"rpStat\": \" \",\r\n    \"dateLu\": \"2022-01-10\",\r\n    \"timeLu\": \"19:22:52\",\r\n    \"userLu\": \"Gondal\",\r\n    \"exitCwfl\": false,\r\n    \"jumpCwfl\": false,\r\n    \"reindExfl\": false,\r\n    \"deleteFl\": false,\r\n    \"moveFl\": false,\r\n    \"copyFl\": false,\r\n    \"secRange\": 100,\r\n    \"allowImpA\": false,\r\n    \"allowFax\": false,\r\n    \"fcSecLow\": 0,\r\n    \"fcSecHigh\": 0,\r\n    \"prtQueue\": \" \",\r\n    \"alwCrannA\": true,\r\n    \"alwCrredA\": true,\r\n    \"alwModAnnA\": false,\r\n    \"alwModRedA\": false,\r\n    \"alwRmvAnnA\": false,\r\n    \"alwRmvRedA\": false,\r\n    \"alwPrsAnnA\": true,\r\n    \"annSecLvlA\": 0,\r\n    \"redSecLvlA\": 0,\r\n    \"preVerFlA\": true,\r\n    \"separatorPage\": false,\r\n    \"cefLagA\": false,\r\n    \"ocRflA\": false,\r\n    \"alwModDocA\": true,\r\n    \"wbSecLow\": 0,\r\n    \"wbSecHigh\": 0,\r\n    \"alwPmg\": false,\r\n    \"alwPmt\": false,\r\n    \"alwWbo\": false,\r\n    \"alwAdc\": false,\r\n    \"alwVwc\": false,\r\n    \"alwWkc\": false,\r\n    \"dftCt1Pnl\": \"2\",\r\n    \"rtvLanatt\": \"1\",\r\n    \"dasdSysId\": \"1\",\r\n    \"privName\": \" \",\r\n    \"allowLog\": \"1\",\r\n    \"filler\": \" \",\r\n    \"closeFl\": false,\r\n    \"cfrPflA\": false,\r\n    \"emsiUser\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/users/anas123",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"users",
+										"anas123"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/users/anas12",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"users",
+										"anas12"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "indexing",
+			"item": [
+				{
+					"name": "GET INDEX",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/index/document/B21182AA.C9M",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"index",
+								"document",
+								"B21182AA.C9M"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1. Assign And get Policy Cases",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"policyOrSsn\": \"SSN\",\r\n    \"documentId\": \"B21244AA.A00\",\r\n    \"documentType\": \"LPLTR\",\r\n    \"documentDescription\": \"amna\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Amna\",\r\n    \"middleInitial\": \"Y\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/index/assign/policies",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"index",
+								"assign",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE INDEX",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/index/document/B21182AA.C9M",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"index",
+								"document",
+								"B21182AA.C9M"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IN USE INDEX",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"indexFlag\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/index/in-use/B21182AA.C9N",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"index",
+								"in-use",
+								"B21182AA.C9N"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL INDEXABLE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/index/documents/document-types/ADDRMAIL?page=0&size=10",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"index",
+								"documents",
+								"document-types",
+								"ADDRMAIL"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index Beneficiary Form",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "documentType",
+									"value": "ADDRMAIL",
+									"type": "default"
+								},
+								{
+									"key": "docPage",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "policyId",
+									"value": "543215897",
+									"type": "default"
+								},
+								{
+									"key": "doc",
+									"type": "file",
+									"src": "/C:/Users/basharat.ali/Desktop/big.tif"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/index/beneficiary-form",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"index",
+								"beneficiary-form"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
